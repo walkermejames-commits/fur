@@ -1,0 +1,15 @@
+import React, { useEffect, useState } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../services/firebase';
+import { AuthNavigator } from './AuthNavigator';
+import { SplashScreen } from '../screens/SplashScreen';
+import { LoadingScreen } from '../screens/LoadingScreen';
+import { ProfileSetupScreen } from '../screens/ProfileSetupScreen';
+import { DiscoveryScreen } from '../screens/DiscoveryScreen';
+import { FriendsScreen } from '../screens/FriendsScreen';
+import { ChatListScreen } from '../screens/ChatListScreen';
+import { ChatScreen } from '../screens/ChatScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
+const Stack = createNativeStackNavigator();
+export const AppNavigator = () => { const [uid,setUid]=useState<string|undefined>();const [boot,setBoot]=useState(true);useEffect(()=>onAuthStateChanged(auth,u=>{setUid(u?.uid);setBoot(false)}),[]); if(boot) return <SplashScreen />;return <Stack.Navigator screenOptions={{headerShown:false}}>{!uid?<Stack.Screen name='AuthFlow' component={AuthNavigator} />:<><Stack.Screen name='Loading' component={LoadingScreen}/><Stack.Screen name='ProfileSetup' component={ProfileSetupScreen}/><Stack.Screen name='Discovery' component={DiscoveryScreen}/><Stack.Screen name='Friends' component={FriendsScreen}/><Stack.Screen name='ChatList' component={ChatListScreen}/><Stack.Screen name='Chat' component={ChatScreen}/><Stack.Screen name='Profile' component={ProfileScreen}/></>}</Stack.Navigator>; };

@@ -1,0 +1,2 @@
+import React from 'react'; import { View, Text } from 'react-native'; import { Button } from '../components/Button';
+export const FriendsScreen = ({ route, navigation }: any) => <View style={{flex:1,justifyContent:'center',alignItems:'center',gap:14}}><Text style={{fontSize:48}}>Friends!</Text><Text>👊✨👊</Text><Text>You both want to connect.</Text><Button title='Say hi 👋' onPress={()=>navigation.replace('Chat',{chatId:route.params.chatId})}/></View>;
