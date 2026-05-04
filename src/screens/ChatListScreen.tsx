@@ -1,0 +1,2 @@
+import React,{useEffect,useState} from 'react'; import { View, Text, Pressable } from 'react-native'; import { auth } from '../services/firebase'; import { chatService } from '../services/chatService';
+export const ChatListScreen = ({ navigation }: any) => {const[c,setC]=useState<any[]>([]); useEffect(()=>{chatService.getUserChats(auth.currentUser?.uid!).then(setC)},[]); return <View style={{padding:20}}>{c.map((chat)=> <Pressable key={chat.id} onPress={()=>navigation.navigate('Chat',{chatId:chat.id})}><Text>{chat.lastMessage} · now</Text></Pressable>)}</View>};

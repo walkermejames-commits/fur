@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Find UR",
+    "slug": "find-ur",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
