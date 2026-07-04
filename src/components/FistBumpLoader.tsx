@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, View, Text, StyleSheet } from 'react-native';
+import { colors } from '../theme/colors';
 
 export const FistBumpLoader = () => {
-  const x = useRef(new Animated.Value(0)).current;
-  useEffect(() => { Animated.loop(Animated.sequence([Animated.timing(x,{toValue:1,duration:700,useNativeDriver:true}),Animated.timing(x,{toValue:0,duration:700,useNativeDriver:true})])).start(); }, [x]);
-  return <View><View style={s.row}><Animated.Text style={{ transform: [{ translateX: x.interpolate({ inputRange:[0,1], outputRange:[-20,0] }) }] }}>👊</Animated.Text><Animated.Text style={{ transform: [{ translateX: x.interpolate({ inputRange:[0,1], outputRange:[20,0] }) }] }}>👊</Animated.Text></View><Text style={s.u}>U</Text></View>;
+  const opacity = useRef(new Animated.Value(0.45)).current;
+  useEffect(() => { Animated.loop(Animated.sequence([Animated.timing(opacity,{toValue:1,duration:850,useNativeDriver:true}),Animated.timing(opacity,{toValue:0.45,duration:850,useNativeDriver:true})])).start(); }, [opacity]);
+  return <View style={s.wrap}><Animated.View style={[s.mark,{opacity}]}><Text style={s.markText}>D</Text></Animated.View><Text style={s.u}>Preparing workspace...</Text></View>;
 };
-const s = StyleSheet.create({ row: { flexDirection: 'row', justifyContent: 'center', gap: 20 }, u: { textAlign: 'center', marginTop: 8, color: '#2DC5B0', fontSize: 28 } });
+const s = StyleSheet.create({ wrap: { alignItems: 'center', gap: 10 }, mark: { width: 44, height: 44, borderRadius: 22, borderWidth: 1, borderColor: colors.gold, backgroundColor: colors.velvet, alignItems: 'center', justifyContent: 'center' }, markText: { color: colors.gold, fontWeight: '900', fontSize: 22, letterSpacing: 1 }, u: { textAlign: 'center', color: colors.textMuted, fontSize: 16, fontWeight: '700' } });
