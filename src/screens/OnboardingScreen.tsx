@@ -1,3 +1,4 @@
 import React from 'react'; import { View, Text, StyleSheet } from 'react-native'; import { Button } from '../components/Button';
-export const OnboardingScreen = ({ navigation }: any) => <View style={s.c}><Text style={s.h}>Find UR Community</Text><Text>Meet people who share your interests.</Text><Button title='Get Started' onPress={()=>navigation.navigate('Auth')} /></View>;
-const s=StyleSheet.create({c:{flex:1,justifyContent:'center',padding:24,gap:14,backgroundColor:'#F9F9F9'},h:{fontSize:34,fontWeight:'800'}});
+import { colors } from '../theme/colors';
+export const OnboardingScreen = ({ navigation }: any) => <View style={s.c}><Text style={s.k}>James Ventures / DUCK Core</Text><Text style={s.h}>Find UR Community</Text><Text style={s.p}>Meet people who share your interests.</Text><Button title='Get Started' onPress={()=>navigation.navigate('Auth')} /></View>;
+const s=StyleSheet.create({c:{flex:1,justifyContent:'center',padding:24,gap:14,backgroundColor:colors.backgroundPrimary},k:{color:colors.gold,fontSize:12,fontWeight:'800',letterSpacing:1,textTransform:'uppercase'},h:{fontSize:34,fontWeight:'800',color:colors.cream},p:{color:colors.textMuted,fontSize:16,lineHeight:24}});

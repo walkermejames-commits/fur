@@ -1,9 +1,21 @@
 export const colors = {
-  orange: '#FF8C42',
-  teal: '#2DC5B0',
-  offWhite: '#F9F9F9',
-  charcoal: '#2C2C2C',
-  white: '#FFFFFF',
-  gray: '#777777',
-  lightGray: '#E8E8E8'
+  orange: '#5b1117',
+  teal: '#c9a45d',
+  offWhite: '#080606',
+  charcoal: '#f4ead7',
+  white: '#f4ead7',
+  gray: '#b8aa95',
+  lightGray: '#6d5736',
+  backgroundPrimary: '#080606',
+  backgroundPanel: '#151110',
+  backgroundPanelSoft: '#1d1715',
+  velvet: '#5b1117',
+  velvetDark: '#1b0709',
+  gold: '#c9a45d',
+  bronze: '#6d5736',
+  cream: '#f4ead7',
+  textMuted: '#b8aa95',
+  success: '#6f9f72',
+  warning: '#c58b43',
+  danger: '#a84b4b'
 };
